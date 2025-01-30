@@ -29,7 +29,8 @@
                       <button type="button" class="btn btn-primary ms-3" onclick="clearrr()">Clear</button>
                 </div>
                     <br>
-                    <h5 class="mt-1 text-primary text-center " id="TT">  <span class="text-danger" id="totalBill"> </span></h5>
+                    <h5 class="mt-1 text-primary text-center " id="TT">  <span class="text-danger" id="tipbill"> </span></h5>
+                    <h5 class="text-danger text-center" id="totalllBill"></h5>
                   </form>
             </div>
             <div class="col-md-4"></div>
@@ -41,17 +42,20 @@
         var inputAmount = amount.value
         var inputPercent = percent.value
         if(inputAmount=="" ){
-            totalBill.innerHTML = "please enter the bill amount "
+          tipbill.innerHTML = "please enter the bill amount "
             // alert("please enter the bill amount ")
         }else{
             if(percent.value==""){
-                totalBill.innerHTML = "please enter the tip"
+              tipbill.innerHTML = "please enter the tip"
                 // alert("please enter the tip")
             }else{
                 var percentageOut =  (inputPercent/100)*inputAmount
         var output = percentageOut.toFixed(1)
+        var TotoalOutput = Number(inputAmount) + Number(output)
         var TTT = TT.innerHTML
-        totalBill.innerHTML = "Total Bill :" + " "+output + " " + "₹"
+        tipbill.innerHTML = "Tip Amount :" + " " + output + " " + "₹"
+          totalllBill.innerHTML = "Total Bill :" + " " + TotoalOutput + " " + "₹"
+      
             }
         }
       }
@@ -60,7 +64,8 @@
         // var inputAmount = amount.value
         amount.value =""
         percent.value =""
-        totalBill.innerHTML = " " 
+        tipbill.innerHTML = " " 
+        totalllBill.innerHTML = "  "
       }
     </script>
 </body>
